@@ -17,6 +17,12 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
 
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("id", "username", "email", "date_joined")
+        read_only_fields = fields
+
 class CorrectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Correction

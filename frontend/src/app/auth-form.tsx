@@ -22,6 +22,7 @@ export default function AuthForm({ mode }: { mode: "login" | "register" }) {
       if (mode === "login") {
         localStorage.setItem("access", data.access);
         localStorage.setItem("refresh", data.refresh);
+        window.dispatchEvent(new Event("auth-change"));
         router.push("/agent");
       } else {
         router.push("/login?registered=1");

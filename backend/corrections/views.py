@@ -6,11 +6,18 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Correction
-from .serializers import RegisterSerializer, CorrectionSerializer
+from .serializers import RegisterSerializer, CorrectionSerializer, UserProfileSerializer
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     permission_classes = [AllowAny]
+
+class UserProfileView(generics.RetrieveAPIView):
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
 
 class CorrectInputSerializer(serializers.Serializer):
     text = serializers.CharField(trim_whitespace=False, allow_blank=False)

@@ -49,6 +49,7 @@ Frontend runs at `http://localhost:3000`.
 
 ## Notes
 - Register and login use JWT tokens stored in local storage in this starter. For production, prefer secure HttpOnly cookies and add CSRF protections.
+- Signed-in users can open their profile from the navbar avatar. Use the navbar theme button to switch between light and dark themes; the selection is saved in the browser.
 - History is saved only for authenticated users.
 - The AI correction endpoint uses the OpenAI Responses API when `OPENAI_API_KEY` is configured. Without a key, it returns a clear configuration error.
 - Set `MAX_TEXT_LENGTH` to your intended limit. Very large documents may need chunking and request timeouts.

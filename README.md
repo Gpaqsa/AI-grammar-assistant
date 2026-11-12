@@ -18,6 +18,7 @@ A full-stack application focused on correcting grammar in long text.
 Copy `.env.example` to `.env` and set `OPENAI_API_KEY` if you want live AI corrections.
 The API key must remain on the backend.
 Set `MYSQL_ROOT_PASSWORD` to the password for the MySQL `root` account. Django and the local MySQL container both use this value.
+`FRONTEND_ORIGINS` is a comma-separated list of allowed frontend origins for Django CORS. Update it to match the browser address used to open the frontend if your computer's LAN IP changes.
 
 ## 2. Start MySQL
 ```bash

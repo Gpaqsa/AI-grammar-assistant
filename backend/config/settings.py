@@ -66,7 +66,7 @@ if configured_frontend_origins is None:
     configured_frontend_origins = ",".join((
         os.getenv("FRONTEND_ORIGIN", "http://localhost:3000"),
         "http://127.0.0.1:3000",
-        "http://192.168.1.11:3000",
+        "http://192.168.1.12:3000",
     ))
 CORS_ALLOWED_ORIGINS = [
     origin.strip()

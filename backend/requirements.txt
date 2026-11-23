@@ -5,3 +5,4 @@ django-cors-headers>=4.6
 PyMySQL>=1.1.1
 openai>=1.60
 python-dotenv>=1.0
+gunicorn

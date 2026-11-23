@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from datetime import timedelta
+import ssl
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,12 +41,15 @@ ASGI_APPLICATION = "config.asgi.application"
 
 DATABASES = {"default": {
     "ENGINE": "django.db.backends.mysql",
-    "NAME": os.getenv("MYSQL_DATABASE", "finalApp"),
-    "USER": os.getenv("MYSQL_USER", "root"),
-    "PASSWORD": os.getenv("MYSQL_ROOT_PASSWORD", "paksa1234"),
-    "HOST": os.getenv("MYSQL_HOST", "127.0.0.1"),
-    "PORT": os.getenv("MYSQL_PORT", "3306"),
-    "OPTIONS": {"charset": "utf8mb4"},
+    "NAME": "grammar_correction_app_mysql",
+    "USER": "giogio",
+    "PASSWORD": "paksa@1234",
+    "HOST": "grammar-correction-app-mysql.mysql.database.azure.com",
+    "PORT": "3306",
+    "OPTIONS": {
+                #  "ssl": {"ca": "/path/to/DigiCertGlobalRootG2.crt.pem"},
+                 "charset": "utf8mb4"
+             },
 }}
 
 AUTH_PASSWORD_VALIDATORS = [

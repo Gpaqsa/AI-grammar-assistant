@@ -41,13 +41,20 @@ ASGI_APPLICATION = "config.asgi.application"
 
 DATABASES = {"default": {
     "ENGINE": "django.db.backends.mysql",
+    # "NAME": os.getenv("MYSQL_DATABASE"),
+    # "USER": os.getenv("MYSQL_USER"),
+    # "PASSWORD": os.getenv("MYSQL_ROOT_PASSWORD"),
+    # "HOST": os.getenv("MYSQL_HOST"),
+    # "PORT": os.getenv("MYSQL_PORT", "3306"),
     "NAME": "grammar_correction_app_mysql",
     "USER": "giogio",
     "PASSWORD": "paksa@1234",
     "HOST": "grammar-correction-app-mysql.mysql.database.azure.com",
     "PORT": "3306",
     "OPTIONS": {
-                #  "ssl": {"ca": "/path/to/DigiCertGlobalRootG2.crt.pem"},
+            'ssl': {
+                'ca': str(BASE_DIR / 'DigiCertGlobalRootG2.crt.pem'),
+            },
                  "charset": "utf8mb4"
              },
 }}
